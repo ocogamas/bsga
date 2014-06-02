@@ -146,13 +146,6 @@
         }
     }
     
-    if (launchCount < 500) {
-        AdlantisAdManager.sharedManager.publisherID = @"MTg0ODg%3D%0A";
-        AdlantisView *adLantisView = [[AdlantisView alloc] init];
-        [adLantisView setFrame:CGRectMake(0, 410, 320, 50)];
-        [scrollView addSubview:adLantisView];
-        [adLantisView release];        
-    }
     
     // 起動回数が10の倍数のとき
     if (launchCount % 10 == 0 && launchCount > 0) {
@@ -526,31 +519,7 @@
                 chokyu = i+1;
             }
         }
-    }
-    
-
-    TWTweetComposeViewController *viewController =
-    [[TWTweetComposeViewController alloc] init];
-    
-    NSString *initialText = [NSString stringWithFormat:@"#bsga [%3d,%3d,%3d,%2d]exp:%d\n",
-                             shokyu, chukyu, jokyu, chokyu, [gameDataEntity score]];
-    
-    [viewController setInitialText:initialText];
-    [viewController addURL:[NSURL URLWithString:@"http://phobos.apple.com/WebObjects/MZSearch.woa/wa/search?entity=software&media=software&submit=seeAllLockups&term=%E8%BF%91%E8%97%A4%E9%9B%85%E4%BA%BA"]];
-    
-    viewController.completionHandler = ^(TWTweetComposeViewControllerResult res) {
-        if (res == TWTweetComposeViewControllerResultDone) {
-            NSLog(@"done");
-            
-        } else if (res == TWTweetComposeViewControllerResultCancelled) {
-            NSLog(@"cancel");
-            
-        }
-    };
-    
-    [self presentModalViewController:viewController animated:YES];
-    
-    [viewController release];
+    }    
 }
 
 /************************************************

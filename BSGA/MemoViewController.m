@@ -51,19 +51,6 @@
     if (isSee) {
         [self performSelectorInBackground:@selector(getData) withObject:nil];
     }
-        
-    GameDataEntity *gameDataEntity = [GameDataManager getGameDataEntity];
-    
-    int launchCount = [gameDataEntity launchCount];
-    
-    if (launchCount < 500) {
-        AdlantisAdManager.sharedManager.publisherID = @"MTg0ODg%3D%0A";
-        AdlantisView *adLantisView = [[AdlantisView alloc] init];
-        [adLantisView setFrame:CGRectMake(0, 410, 320, 50)];
-        [self.view addSubview:adLantisView];
-        [adLantisView release];        
-    }
-
 }
 
 /************************************************

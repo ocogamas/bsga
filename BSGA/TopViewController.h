@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Twitter/TWTweetComposeViewController.h>
 #import <QuartzCore/QuartzCore.h>
 #import "BSGAAppDelegate.h"
 #import "GameViewController.h"
@@ -27,9 +26,6 @@
 #import "CustomWebViewController.h"
 #import "LogTableViewController.h"
 
-#import "AdlantisAd.h"
-#import "AdlantisView.h"
-#import "AdlantisAdManager.h"
 
 
 enum E_TRANSITION_TYPE {
