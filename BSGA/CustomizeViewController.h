@@ -23,7 +23,7 @@
     IBOutlet UISegmentedControl *soundSegmentedControl;
     IBOutlet UISegmentedControl *blockSegmentedControl;
 }
-@property (nonatomic, retain) GameDataEntity *gameDataEntity;
+@property (nonatomic, strong) GameDataEntity *gameDataEntity;
 
 - (void)customizeAnimationWithLabel:(UILabel *)label component:(UIView *)component;
 

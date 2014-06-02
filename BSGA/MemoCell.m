@@ -15,25 +15,6 @@
 @synthesize gacha01Label, gacha02Label, gacha03Label;
 @synthesize commentLabel;
 @synthesize scoreLabel;
-- (void)dealloc {
-    
-    [numberLabel release];
-    [launchCountLabel release];
-    [dateLabel release];
-    [countryLabel release];
-    [deviceLabel release];
-    [deviceNameLabel release];
-    [shokyuLabel release];
-    [chukyuLabel release];
-    [jokyuLabel release];
-    [chokyuLabel release];
-    [gacha01Label release];
-    [gacha02Label release];
-    [gacha03Label release];
-    [commentLabel release];
-    [scoreLabel release];
-    [super dealloc];
-}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

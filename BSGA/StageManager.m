@@ -69,7 +69,6 @@ static int stageNumber;
         }
         
         [stageEntityArray addObject:stage];
-        [stage release];
         
     }
     NSData *archivedData = [NSKeyedArchiver archivedDataWithRootObject:stageEntityArray];

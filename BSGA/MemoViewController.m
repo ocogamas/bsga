@@ -14,9 +14,6 @@
 /************************************************
  破棄
  ************************************************/
-- (void)dealloc {
-    [super dealloc];
-}
 
 /************************************************
  初期化
@@ -170,11 +167,11 @@
     }
     
     if (bool02) {
-        [[[[CustomAlertView alloc] initWithTitle:@"あああとかはダメ"
+        [[[CustomAlertView alloc] initWithTitle:@"あああとかはダメ"
                                    message:text 
                                   delegate:nil
                          cancelButtonTitle:@"ごめん"
-                           otherButtonTitles:nil] autorelease] show];
+                           otherButtonTitles:nil] show];
     }
     
     if (bool01 || bool02) {
@@ -193,7 +190,6 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
         NSString *dateString = [dateFormatter stringFromDate:date];
-        [dateFormatter release];
         
         // 言語（国）
         NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
@@ -301,11 +297,11 @@
             [textField_ setText:@""];
             [self performSelectorInBackground:@selector(getData) withObject:nil];
         } else {
-            [[[[CustomAlertView alloc] initWithTitle:@"network error"
+            [[[CustomAlertView alloc] initWithTitle:@"network error"
                                        message:nil
                                       delegate:nil
                              cancelButtonTitle:@"ahh..."
-                               otherButtonTitles:nil] autorelease] show];
+                               otherButtonTitles:nil] show];
         }
         
     }
@@ -384,7 +380,6 @@
     if (cell == nil) {
         UIViewController *vc = [[UIViewController alloc] initWithNibName:@"MemoCell" bundle:nil];
         cell = (MemoCell *)vc.view;
-        [vc release];
     }
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -485,11 +480,9 @@
             if ([array count] == 16) {
                 [cellDataArray addObject:array];
             }
-            [array release];
         }
         
         [self performSelectorOnMainThread:@selector(reloadTable) withObject:nil waitUntilDone:NO];
-        [string release];
     }
     
 }

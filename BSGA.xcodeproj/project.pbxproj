@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C1391E5193CA54700226EC8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1391E4193CA54700226EC8 /* Default-568h@2x.png */; };
+		4CB96736193CAC2A004BBFF6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB96735193CAC2A004BBFF6 /* libz.dylib */; };
 		9E10CB5E1542FD0D004888DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E10CB5D1542FD0D004888DF /* UIKit.framework */; };
 		9E10CB601542FD0D004888DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E10CB5F1542FD0D004888DF /* Foundation.framework */; };
 		9E10CB621542FD0D004888DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E10CB611542FD0D004888DF /* CoreGraphics.framework */; };
@@ -322,6 +323,7 @@
 
 /* Begin PBXFileReference section */
 		4C1391E4193CA54700226EC8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4CB96735193CAC2A004BBFF6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9E10CB591542FD0D004888DF /* BSGA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSGA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E10CB5D1542FD0D004888DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9E10CB5F1542FD0D004888DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -663,6 +665,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CB96736193CAC2A004BBFF6 /* libz.dylib in Frameworks */,
 				9E90180715A87C3300B5A7D5 /* CFNetwork.framework in Frameworks */,
 				9E90180515A87C2A00B5A7D5 /* MobileCoreServices.framework in Frameworks */,
 				9E2526DE159601900010833A /* MessageUI.framework in Frameworks */,
@@ -711,6 +714,7 @@
 		9E10CB5C1542FD0D004888DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CB96735193CAC2A004BBFF6 /* libz.dylib */,
 				9E90180615A87C3300B5A7D5 /* CFNetwork.framework */,
 				9E90180415A87C2A00B5A7D5 /* MobileCoreServices.framework */,
 				9E2526DD1596018F0010833A /* MessageUI.framework */,
@@ -1463,6 +1467,11 @@
 				CLASSPREFIX = BSGA;
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "レッドフォックス株式会社";
+				TargetAttributes = {
+					9E10CB581542FD0D004888DF = {
+						DevelopmentTeam = 8AKEA6TEBH;
+					};
+				};
 			};
 			buildConfigurationList = 9E10CB531542FD0D004888DF /* Build configuration list for PBXProject "BSGA" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1896,6 +1905,9 @@
 		9E10CB781542FD0D004888DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BSGA/BSGA-Prefix.pch";
 				INFOPLIST_FILE = "BSGA/BSGA-Info.plist";
@@ -1903,6 +1915,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1910,6 +1923,9 @@
 		9E10CB791542FD0D004888DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BSGA/BSGA-Prefix.pch";
 				INFOPLIST_FILE = "BSGA/BSGA-Info.plist";
@@ -1917,6 +1933,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1924,6 +1941,7 @@
 		9E94A44F15BD93E0003BD749 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -1939,6 +1957,7 @@
 		9E94A45015BD93E0003BD749 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",

@@ -14,32 +14,6 @@
 /************************************************
  破棄
  ************************************************/
-- (void)dealloc {
-    [stageEntity release];
-    [scrollView release];
-    [contentView release];
-    [shokyuScrollView release];
-    [chukyuScrollView release];
-    [jokyuScrollView release];
-    [chokyuScrollView release];
-    [gameDataEntity release];
-    
-    [displayLevelLabel release];
-    [displayMessageLabel release];
-    [displayRankLabel release];
-    
-    [rankSLabel release];
-    [rankALabel release];
-    [rankBLabel release];
-    [rankCLabel release];
-    [rankDLabel release];
-    [rankELabel release];
-    [rankFLabel release];
-    [rankGLabel release];
-    
-    [classLabel release];
-    [super dealloc];
-}
 
 /************************************************
  初期化
@@ -244,7 +218,6 @@
         }   
     }
     
-    [hardLabel release];
     
 }
 
@@ -280,7 +253,6 @@
         [levelLabel setBackgroundColor:[UIColor clearColor]];
         [levelLabel setText:levelText];
         [aScrollView addSubview:levelLabel];
-        [levelLabel release];
     }
     
     for (i=0; i<maxStage; i++) {
@@ -390,9 +362,8 @@
             stage += 180;
         }
         
-        [stageEntity release];
         stageEntity = nil;
-        stageEntity = [[StageManager getStageEntityAtIndex:stage] retain];
+        stageEntity = [StageManager getStageEntityAtIndex:stage];
         
         nextPage = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
         [(GameViewController *)nextPage setStageEntity:stageEntity];
@@ -799,7 +770,6 @@
     } else if (anim == [layer animationForKey:@"transformAnimationNext"]) {
         if (nextPage) {
             [self.navigationController pushViewController:nextPage animated:NO];
-            [nextPage release];
             nextPage = nil;
         }
         [layer removeAnimationForKey:@"transformAnimationNext"];

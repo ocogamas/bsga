@@ -13,10 +13,6 @@
 /************************************************
  破棄
  ************************************************/
-- (void)dealloc {
-    
-    [super dealloc];
-}
 
 /************************************************
  初期化
@@ -47,8 +43,8 @@
 //            NSLog(@"filePath[%d] = %@ %@", i, filePath, [pathArray objectAtIndex:i]);
             
             NSURL *url = [NSURL fileURLWithPath:filePath];
-            AudioServicesCreateSystemSoundID((CFURLRef)url, &sound[i]);
-        }        
+            AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &sound[i]);
+        }
     }
     return self;
 }

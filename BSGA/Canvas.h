@@ -25,7 +25,7 @@
     BOOL         _initFlag;       //初期化フラグ
     
     //アニメ
-    NSTimer* _animeTimer;//アニメタイマー
+    NSTimer* __weak _animeTimer;//アニメタイマー
 }
 
 //描画

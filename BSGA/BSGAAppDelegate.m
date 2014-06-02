@@ -17,27 +17,21 @@
 /************************************************
  破棄
  ************************************************/
-- (void)dealloc
-{
-    [soundManager release];
-    [_window release];
-    [super dealloc];
-}
 
 /************************************************
  アプリケーション開始
  ************************************************/
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     soundManager = [[SoundManager alloc] init];
     
     TopViewController *topViewController
-    = [[[TopViewController alloc] initWithNibName:@"TopViewController" bundle:nil] autorelease];
+    = [[TopViewController alloc] initWithNibName:@"TopViewController" bundle:nil];
  
     UINavigationController *navigationController
-    = [[[UINavigationController alloc] initWithRootViewController:topViewController] autorelease];
+    = [[UINavigationController alloc] initWithRootViewController:topViewController];
     [navigationController setNavigationBarHidden:YES];
     
     
@@ -45,7 +39,6 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"window_bg"]];
     [imageView setFrame:CGRectMake(0, 0, 320, 480)];
     [self.window addSubview:imageView];
-    [imageView release];
 
     
     [self.window setRootViewController:navigationController];
@@ -82,11 +75,11 @@
 
 - (void)payEasyMode {
     if (![SKPaymentQueue canMakePayments]) {
-        [[[[CustomAlertView alloc] initWithTitle:@"アプリ内購入制限"
+        [[[CustomAlertView alloc] initWithTitle:@"アプリ内購入制限"
                                    message:@"設定で機能制限されています"
                                   delegate:nil
                          cancelButtonTitle:@"その通りです"
-                           otherButtonTitles:nil] autorelease] show];
+                           otherButtonTitles:nil] show];
         return;
     }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -101,11 +94,11 @@
 
 - (void)payGachaPoints {
     if (![SKPaymentQueue canMakePayments]) {
-        [[[[CustomAlertView alloc] initWithTitle:@"アプリ内購入制限"
+        [[[CustomAlertView alloc] initWithTitle:@"アプリ内購入制限"
                                      message:@"設定で機能制限されています"
                                     delegate:nil
                            cancelButtonTitle:@"その通りです"
-                           otherButtonTitles:nil] autorelease] show];
+                           otherButtonTitles:nil] show];
         return;
     }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];

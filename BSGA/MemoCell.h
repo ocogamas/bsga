@@ -12,21 +12,21 @@
     
 }
 
-@property(nonatomic, retain) IBOutlet UILabel *numberLabel;
-@property(nonatomic, retain) IBOutlet UILabel *launchCountLabel;
-@property(nonatomic, retain) IBOutlet UILabel *dateLabel;
-@property(nonatomic, retain) IBOutlet UILabel *countryLabel;
-@property(nonatomic, retain) IBOutlet UILabel *deviceLabel;
-@property(nonatomic, retain) IBOutlet UILabel *deviceNameLabel;
-@property(nonatomic, retain) IBOutlet UILabel *shokyuLabel;
-@property(nonatomic, retain) IBOutlet UILabel *chukyuLabel;
-@property(nonatomic, retain) IBOutlet UILabel *jokyuLabel;
-@property(nonatomic, retain) IBOutlet UILabel *chokyuLabel;
-@property(nonatomic, retain) IBOutlet UILabel *gacha01Label;
-@property(nonatomic, retain) IBOutlet UILabel *gacha02Label;
-@property(nonatomic, retain) IBOutlet UILabel *gacha03Label;
+@property(nonatomic, strong) IBOutlet UILabel *numberLabel;
+@property(nonatomic, strong) IBOutlet UILabel *launchCountLabel;
+@property(nonatomic, strong) IBOutlet UILabel *dateLabel;
+@property(nonatomic, strong) IBOutlet UILabel *countryLabel;
+@property(nonatomic, strong) IBOutlet UILabel *deviceLabel;
+@property(nonatomic, strong) IBOutlet UILabel *deviceNameLabel;
+@property(nonatomic, strong) IBOutlet UILabel *shokyuLabel;
+@property(nonatomic, strong) IBOutlet UILabel *chukyuLabel;
+@property(nonatomic, strong) IBOutlet UILabel *jokyuLabel;
+@property(nonatomic, strong) IBOutlet UILabel *chokyuLabel;
+@property(nonatomic, strong) IBOutlet UILabel *gacha01Label;
+@property(nonatomic, strong) IBOutlet UILabel *gacha02Label;
+@property(nonatomic, strong) IBOutlet UILabel *gacha03Label;
 
-@property(nonatomic, retain) IBOutlet UILabel *commentLabel;
-@property(nonatomic, retain) IBOutlet UILabel *scoreLabel;
+@property(nonatomic, strong) IBOutlet UILabel *commentLabel;
+@property(nonatomic, strong) IBOutlet UILabel *scoreLabel;
 
 @end
