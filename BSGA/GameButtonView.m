@@ -43,7 +43,8 @@
         [soundManager play:E_SOUND_BUTTON];
     }
     
-    for (UITouch *touch in touches) {
+    for (UITouch *touch in touches)
+    {
         [delegate gameButtonState:YES];
         break;
     }

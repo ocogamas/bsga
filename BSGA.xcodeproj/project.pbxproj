@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C1391E5193CA54700226EC8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1391E4193CA54700226EC8 /* Default-568h@2x.png */; };
 		9E10CB5E1542FD0D004888DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E10CB5D1542FD0D004888DF /* UIKit.framework */; };
 		9E10CB601542FD0D004888DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E10CB5F1542FD0D004888DF /* Foundation.framework */; };
 		9E10CB621542FD0D004888DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E10CB611542FD0D004888DF /* CoreGraphics.framework */; };
@@ -339,6 +340,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C1391E4193CA54700226EC8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9E10CB591542FD0D004888DF /* BSGA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSGA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E10CB5D1542FD0D004888DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9E10CB5F1542FD0D004888DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -752,6 +754,7 @@
 		9E10CB4E1542FD0D004888DF = {
 			isa = PBXGroup;
 			children = (
+				4C1391E4193CA54700226EC8 /* Default-568h@2x.png */,
 				9E10CB631542FD0D004888DF /* BSGA */,
 				9E94A44415BD93E0003BD749 /* BSGATest */,
 				9E10CB5C1542FD0D004888DF /* Frameworks */,
@@ -1742,6 +1745,7 @@
 				9E81959C15514C4100784964 /* 081.txt in Resources */,
 				9E81959D15514C4100784964 /* 082.txt in Resources */,
 				9E81959E15514C4100784964 /* 083.txt in Resources */,
+				4C1391E5193CA54700226EC8 /* Default-568h@2x.png in Resources */,
 				9E81959F15514C4100784964 /* 084.txt in Resources */,
 				9E8195A015514C4100784964 /* 085.txt in Resources */,
 				9E8195A115514C4100784964 /* 086.txt in Resources */,
