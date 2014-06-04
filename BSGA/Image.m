@@ -51,7 +51,7 @@
      andImageWidth:(int*)pImageWidth andImageHeight:(int*)pImageHeight {
     CGImageRef       imageRef;
     NSUInteger       i;
-    int              textureSize;
+    int              textureSize = 0;
     int              imageWidth;
     int              imageHeight;
     NSUInteger       maxImageSize;
@@ -242,7 +242,8 @@
     
     //コンテキストの解放
 	CGColorSpaceRelease(colorSpace);
-    CGContextRelease(context);   
+    CGContextRelease(context);
+    CGImageRelease(imageRef);
     free(bmpData);
     return image;
 }
