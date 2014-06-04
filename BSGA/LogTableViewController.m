@@ -10,12 +10,6 @@
 
 @implementation LogTableViewController
 
-- (void)dealloc {
-    [mTableView release];
-    [cellDataArray release];
-    [data release];
-    [super dealloc];
-}
 
 
 - (void)viewDidLoad
@@ -68,7 +62,6 @@
     if (cell == nil) {
         UIViewController *vc = [[UIViewController alloc] initWithNibName:@"LogTableViewCell" bundle:nil];
         cell = (LogTableViewCell *)vc.view;
-        [vc release];
     }
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -165,10 +158,8 @@
             if ([array count] == 15) {
                 [cellDataArray addObject:array];
             }
-            [array release];
         }
         [self performSelectorOnMainThread:@selector(reloadTable) withObject:nil waitUntilDone:NO];
-        [string release];
     }
     
 }

@@ -55,9 +55,6 @@ const GLfloat panelUVs[]={
 //メモリ解放
 - (void)dealloc {
     PrintLog();
-    [_textList release];
-    [_textMap release];
-    [super dealloc];
 }
 
 //初期化
@@ -503,10 +500,20 @@ angle:(float)angle {
     }
     
     //イメージの生成
-    image=[Image makeTextImage:text
-                          font:[UIFont systemFontOfSize:_fontSize*2] 
-                         color:[UIColor colorWithRed:_color.r/255.0f green:_color.g/255.0f 
-                                                blue:_color.b/255.0f alpha:_color.a/255.0f]];
+    image = [Image makeTextImage:text
+                            font:[UIFont systemFontOfSize:_fontSize*2]
+                           color:[UIColor colorWithRed:_color.r/255.0f green:_color.g/255.0f
+                                                  blue:_color.b/255.0f alpha:_color.a/255.0f]];
+    
+    if (image == nil)
+    {
+        PrintLog(@"ERROR ==========... image == nil");
+    }
+    else
+    {
+        PrintLog(@"問題ないimage");
+    }
+    
     image.width =image.width/2;
     image.height=image.height/2;
     [_textMap setObject:image forKey:key];

@@ -54,7 +54,7 @@
     int selectedStage;
 
 }
-@property (nonatomic, retain) GameDataEntity *gameDataEntity;
+@property (nonatomic, strong) GameDataEntity *gameDataEntity;
 - (void)startGameWithStage:(int)stage level:(int)level;
 - (void)setupScrollViewWithScrollView:(UIScrollView *)aScrollView maxStage:(int)maxStage;
 @end

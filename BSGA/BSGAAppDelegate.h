@@ -14,9 +14,9 @@
 @interface BSGAAppDelegate : UIResponder <UIApplicationDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver> {
     
 }
-@property (nonatomic, retain) SoundManager *soundManager;
+@property (nonatomic, strong) SoundManager *soundManager;
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, assign) id delegate;
+@property (nonatomic, weak) id delegate;
 
 - (void)payEasyMode;
 - (void)payGachaPoints;

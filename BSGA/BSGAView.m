@@ -50,14 +50,6 @@
 - (void)dealloc {
     PrintLog();
     
-    [g release];
-    [image release];
-    [playerKoma release];
-    [enemyDataEntityArray release];
-    [soundManager release];
-    [directionKeyView release];
-    [gameDataEntity release];
-    [super dealloc];
 }
 
 /************************************************
@@ -99,7 +91,7 @@
     [g initSize:CGSizeMake(self.bgWidth, self.bgHeight)];
     
     //イメージの読み込み
-    image=[[Image makeImage:[UIImage imageNamed:@"image01.png"]] retain];
+    image=[Image makeImage:[UIImage imageNamed:@"image01.png"]];
     
     // おまけマップ
     isOmakeMap = NO;
@@ -1063,7 +1055,7 @@
             enemySpeed = 2.1f;
         }
         // 敵情報をセット
-        enemyDataEntityArray = [[stageEntity getEnemyDataEntityArray] retain];
+        enemyDataEntityArray = [stageEntity getEnemyDataEntityArray];
         for (EnemyDataEntity *enemy in enemyDataEntityArray) {
             [enemy setMoveCounter:-(80*kAdjustOldMobileValue)+rand()%93];// 敵の初期停止時間
             [enemy setPos:CGPointMake(18.0f + [enemy x]*60.0f, 17.0f + [enemy y]*60.0f)];
@@ -1195,11 +1187,11 @@
                 // 保存
                 if (![GameDataManager saveGameDataEntity:gameDataEntity]) {
                     // 保存に失敗した時
-                    [[[[CustomAlertView alloc] initWithTitle:@"保存失敗"
+                    [[[CustomAlertView alloc] initWithTitle:@"保存失敗"
                                                message:@"容量不足などが原因でござる"
                                               delegate:nil
                                      cancelButtonTitle:@"理解した"
-                                       otherButtonTitles:nil] autorelease] show];
+                                       otherButtonTitles:nil] show];
 
                 }
             }

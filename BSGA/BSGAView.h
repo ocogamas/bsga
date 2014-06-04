@@ -88,16 +88,16 @@ typedef struct colorStruct {
     float controllerDrawLarge;
     float controllerDrawSmall;
 }
-@property (nonatomic, assign) StageEntity *stageEntity;
+@property (nonatomic, weak) StageEntity *stageEntity;
 @property (nonatomic) int level;
 @property (nonatomic) int stageNumber;
 @property (nonatomic) int gameState;
 @property (nonatomic) BOOL gameButtonState;
 @property (nonatomic) float directionX;
 @property (nonatomic) float directionY;
-@property (nonatomic, retain) SoundManager *soundManager;
-@property (nonatomic, retain) DirectionKeyView *directionKeyView;
-@property (nonatomic, retain) GameDataEntity *gameDataEntity;
+@property (nonatomic, strong) SoundManager *soundManager;
+@property (nonatomic, strong) DirectionKeyView *directionKeyView;
+@property (nonatomic, strong) GameDataEntity *gameDataEntity;
 
 - (void)calcGame;
 - (void)draw;

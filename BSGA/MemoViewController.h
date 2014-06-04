@@ -15,10 +15,6 @@
 #import "AnimationManager.h"
 #import "CustomAlertView.h"
 
-#import "AdlantisAd.h"
-#import "AdlantisView.h"
-#import "AdlantisAdManager.h"
-
 
 @interface MemoViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate> {
     IBOutlet UIButton *backButton;

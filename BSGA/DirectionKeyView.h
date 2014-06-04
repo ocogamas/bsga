@@ -30,7 +30,7 @@
 
 
 
-@property (nonatomic, retain) SoundManager *soundManager;
+@property (nonatomic, strong) SoundManager *soundManager;
 
 - (void)resetTouch;
 

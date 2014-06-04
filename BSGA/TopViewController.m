@@ -12,11 +12,6 @@
 /************************************************
  破棄
  ************************************************/
-- (void)dealloc {
-    [contentView release];
-    [launchCountLabel release];
-    [super dealloc];
-}
 
 /************************************************
  初期化
@@ -45,11 +40,11 @@
     
     // 初回起動
     if ([gameDataEntity launchCount]==0) {
-        [[[[UIAlertView alloc] initWithTitle:@"初回起動ボーナス！"
+        [[[UIAlertView alloc] initWithTitle:@"初回起動ボーナス！"
                                    message:@"おまけポイント\n300pointプレゼント！"
                                   delegate:self
                          cancelButtonTitle:@"え、よくわかんない"
-                           otherButtonTitles:@"なるほど", @"興味ないな", nil] autorelease] show];
+                           otherButtonTitles:@"なるほど", @"興味ないな", nil] show];
     }
     
     [gameDataEntity setLaunchCount:[gameDataEntity launchCount]+1];// 起動回数カウントアップ
@@ -137,22 +132,15 @@
          */
         if (![userDefaults boolForKey:@"reviewme"]) {
             [userDefaults setBool:YES forKey:@"reviewme"];
-            [[[[CustomAlertView alloc] initWithTitle:@"お楽しみ頂けておりますか？"
+            [[[CustomAlertView alloc] initWithTitle:@"お楽しみ頂けておりますか？"
                                            message:@"恐れ入りますが、下の変なアイコンからアプリの評価をして頂けますと大変幸いでございます。\nちなみに起動回数500回で広告消えますです。"
                                           delegate:nil
                                  cancelButtonTitle:nil
-                                   otherButtonTitles:nil] autorelease] show];
+                                   otherButtonTitles:nil] show];
             [userDefaults synchronize];
         }
     }
     
-    if (launchCount < 500) {
-        AdlantisAdManager.sharedManager.publisherID = @"MTg0ODg%3D%0A";
-        AdlantisView *adLantisView = [[AdlantisView alloc] init];
-        [adLantisView setFrame:CGRectMake(0, 410, 320, 50)];
-        [scrollView addSubview:adLantisView];
-        [adLantisView release];        
-    }
     
     // 起動回数が10の倍数のとき
     if (launchCount % 10 == 0 && launchCount > 0) {
@@ -304,7 +292,6 @@
     [soundManager play:E_SOUND_SELECT];
         
     transitionType = E_TRANSITION_TYPE_FLIP;
-    [nextPage release];
     nextPage = nil;    
     
     nextPage = [[StageSelectViewController alloc] initWithNibName:@"StageSelectViewController" bundle:nil];
@@ -342,9 +329,8 @@
 //    PrintLog(@"押下");
     [soundManager play:E_SOUND_SELECT];
     transitionType = E_TRANSITION_TYPE_FLIP;
-    [nextPage release];
     nextPage = nil;
-    nextPage = [[[AbilityViewController alloc] initWithNibName:@"AbilityViewController" bundle:nil] retain];
+    nextPage = [[AbilityViewController alloc] initWithNibName:@"AbilityViewController" bundle:nil];
     
     CALayer *layer = self.view.layer;
 
@@ -377,9 +363,8 @@
     [soundManager play:E_SOUND_SELECT];
 //    PrintLog(@"押下");
     
-    [nextPage release];
     nextPage = nil;
-    nextPage = [[[CustomizeViewController alloc] initWithNibName:@"CustomizeViewController" bundle:nil] retain];
+    nextPage = [[CustomizeViewController alloc] initWithNibName:@"CustomizeViewController" bundle:nil];
 
     transitionType = E_TRANSITION_TYPE_FLIP_X;
     
@@ -415,9 +400,8 @@
     [soundManager play:E_SOUND_SELECT];
     
  //   PrintLog(@"押下");
-    [nextPage release];
     nextPage = nil;
-    nextPage = [[[TipsViewController alloc] initWithNibName:@"TipsViewController" bundle:nil] retain];
+    nextPage = [[TipsViewController alloc] initWithNibName:@"TipsViewController" bundle:nil];
 
     transitionType = E_TRANSITION_TYPE_FLIP_YZ;
     
@@ -456,9 +440,8 @@
 
     [soundManager play:E_SOUND_SELECT];
     
-    [nextPage release];
     nextPage = nil;
-    nextPage = [[[MemoViewController alloc] initWithNibName:@"MemoViewController" bundle:nil] retain];
+    nextPage = [[MemoViewController alloc] initWithNibName:@"MemoViewController" bundle:nil];
     
     [(MemoViewController *)nextPage setIsSee:YES];
 //    [self.navigationController pushViewController:nextPage animated:YES];
@@ -526,31 +509,7 @@
                 chokyu = i+1;
             }
         }
-    }
-    
-
-    TWTweetComposeViewController *viewController =
-    [[TWTweetComposeViewController alloc] init];
-    
-    NSString *initialText = [NSString stringWithFormat:@"#bsga [%3d,%3d,%3d,%2d]exp:%d\n",
-                             shokyu, chukyu, jokyu, chokyu, [gameDataEntity score]];
-    
-    [viewController setInitialText:initialText];
-    [viewController addURL:[NSURL URLWithString:@"http://phobos.apple.com/WebObjects/MZSearch.woa/wa/search?entity=software&media=software&submit=seeAllLockups&term=%E8%BF%91%E8%97%A4%E9%9B%85%E4%BA%BA"]];
-    
-    viewController.completionHandler = ^(TWTweetComposeViewControllerResult res) {
-        if (res == TWTweetComposeViewControllerResultDone) {
-            NSLog(@"done");
-            
-        } else if (res == TWTweetComposeViewControllerResultCancelled) {
-            NSLog(@"cancel");
-            
-        }
-    };
-    
-    [self presentModalViewController:viewController animated:YES];
-    
-    [viewController release];
+    }    
 }
 
 /************************************************
@@ -561,7 +520,6 @@
     nextPage = [[LogTableViewController alloc] initWithNibName:@"LogTableViewController" bundle:nil];
     
     [self.navigationController pushViewController:nextPage animated:YES];
-    [nextPage release];
     nextPage = nil;
     
 }
@@ -591,7 +549,6 @@
     nextPage = [[MemoViewController alloc] initWithNibName:@"MemoViewController" bundle:nil];
     [(MemoViewController *)nextPage setIsSee:YES];
     [self.navigationController pushViewController:nextPage animated:YES];
-    [nextPage release];
     nextPage = nil;
     
 }
@@ -612,9 +569,9 @@
     } else if (buttonIndex == 2) {
         title = @"そのうち興味わいてください";
     }
-    [[[[CustomAlertView alloc] initWithTitle:title message:nil delegate:nil
+    [[[CustomAlertView alloc] initWithTitle:title message:nil delegate:nil
                      cancelButtonTitle:@"閉じる"
-                     otherButtonTitles:nil] autorelease] show];
+                     otherButtonTitles:nil] show];
 }
 
 //-----------------------------------------------
@@ -632,7 +589,6 @@
     if (anim == [layer animationForKey:@"transformAnimationNext"]) {
         if (nextPage) {
             [self.navigationController pushViewController:nextPage animated:NO];
-            [nextPage release];
             nextPage = nil;
         }
         [layer removeAnimationForKey:@"transformAnimationNext"];

@@ -22,7 +22,6 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
     NSString *dateString = [dateFormatter stringFromDate:date];
-    [dateFormatter release];
     
     // 言語（国）
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];

@@ -12,8 +12,8 @@
     
 }
 
-@property (nonatomic, assign) id delegate;
-@property (nonatomic, assign) SoundManager *soundManager;
+@property (nonatomic, weak) id delegate;
+@property (nonatomic, weak) SoundManager *soundManager;
 @property (nonatomic) BOOL isMute;
 
 @end

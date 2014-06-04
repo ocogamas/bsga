@@ -36,7 +36,7 @@
     
     NSTimer *timer;
 }
-@property(nonatomic, retain) StageEntity *stageEntity;
+@property(nonatomic, strong) StageEntity *stageEntity;
 @property(nonatomic) int level;
 @property(nonatomic) int stageNumber;
 

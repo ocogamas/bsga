@@ -39,7 +39,6 @@
     if (num!=0) glDeleteTextures(1,&num);
     if (_data!=NULL) free(_data);    
     
-     [super dealloc];
      
 }
 
@@ -52,7 +51,7 @@
      andImageWidth:(int*)pImageWidth andImageHeight:(int*)pImageHeight {
     CGImageRef       imageRef;
     NSUInteger       i;
-    int              textureSize;
+    int              textureSize = 0;
     int              imageWidth;
     int              imageHeight;
     NSUInteger       maxImageSize;
@@ -142,7 +141,7 @@
         glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR); 
         
         //テクスチャオブジェクトの生成
-        Image* texture=[[[Image alloc] init] autorelease];
+        Image* texture=[[Image alloc] init];
         texture.data=textureData;
         texture.name=textureName;
         texture.width=textureWidth;
@@ -155,12 +154,28 @@
 
 //テキストUIイメージの生成
 + (UIImage*)makeTextUIImage:(NSString*)text font:(UIFont*)font 
-                      color:(UIColor*)color bgcolor:(UIColor*)bgcolor {
+                      color:(UIColor*)color bgcolor:(UIColor*)bgcolor
+{
     //ラベルの生成
-    UILabel* label=[[[UILabel alloc] init] autorelease]; 
-	CGSize size=[text sizeWithFont:font constrainedToSize:CGSizeMake(512,512) 
-                     lineBreakMode:UILineBreakModeWordWrap];
-    [label setFrame:CGRectMake(0,0,size.width,size.height)];
+    UILabel* label=[[UILabel alloc] init];
+    NSDictionary *attributes = @{ NSForegroundColorAttributeName : color,
+								  NSFontAttributeName : font,
+                                  NSBackgroundColorAttributeName : bgcolor};
+
+	CGRect rect = [text boundingRectWithSize:CGSizeMake(512.0f, 512.0f)
+                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:attributes
+                                     context:nil];
+
+    
+    
+
+    [text sizeWithFont:font constrainedToSize:CGSizeMake(512,512)
+         lineBreakMode:UILineBreakModeWordWrap];
+    
+    int width  = (int)(rect.size.width);
+    int height = (int)(rect.size.height);
+    [label setFrame:CGRectMake(0, 0, width, height)];
     [label setText:text];
     [label setFont:font];
     [label setTextColor:color];
@@ -169,44 +184,84 @@
     [label setNumberOfLines:0];
     
     //コンテキストの生成
-    if (size.width<32)  size.width=32;
-    if (size.height<32) size.height=32;
+    if (width<32)  { width=32; }
+    if (height<32) { height=32; }
     unsigned char *bmpData;
     CGContextRef context;	
     CGColorSpaceRef colorSpace;
-	bmpData=malloc(size.width*size.height*sizeof(unsigned char)*4); 
+    
+	bmpData = malloc(width * height * sizeof(unsigned char)*4);
+    
+    if (!bmpData)
+    {
+        PrintLog(@"bmpData is nil ... width=%d, height=%d", width, height);
+    }
+    
 	colorSpace=CGColorSpaceCreateDeviceRGB();
-    context=CGBitmapContextCreate(bmpData, 
-                                  size.width,size.height,8,size.width*4,
+    context = CGBitmapContextCreate(bmpData,
+                                  width,height,8,width*4,
                                   colorSpace,
                                   kCGImageAlphaPremultipliedFirst);
+    
+    if (!context)
+    {
+        PrintLog(@"bmpData = %s", bmpData);
+        PrintLog(@"context is nil. width=%d, height=%d", width, height);
+    }
+
+    
     CGContextSetShouldAntialias(context,0);
-    CGContextClearRect(context,CGRectMake(0,0,size.width,size.height));
+    CGContextClearRect(context,CGRectMake(0, 0, width, height));
     
     //コンテキストの設定
     UIGraphicsPushContext(context);
-    CGContextTranslateCTM(context,0,size.height);
+    CGContextTranslateCTM(context,0, height);
     CGContextScaleCTM(context,1,-1);    
     
     //ラベルの描画
     [label.layer renderInContext:context];
-    CGImageRef imageRef=CGBitmapContextCreateImage(context);
-    UIImage* image=[[[UIImage alloc] initWithCGImage:imageRef] autorelease];
+    
+    
+    CGImageRef imageRef = CGBitmapContextCreateImage(context);
+
+    if (!imageRef)
+    {
+        PrintLog(@"imageRef is nil...");
+    }
+
+    
+    UIImage* image=[[UIImage alloc] initWithCGImage:imageRef];
+
+    if (image == nil)
+    {
+        PrintLog(@"image is nil...");
+    }
     
     //コンテキストの設定解放
     UIGraphicsPopContext();
     
     //コンテキストの解放
 	CGColorSpaceRelease(colorSpace);
-    CGContextRelease(context);   
+    CGContextRelease(context);
+    CGImageRelease(imageRef);
     free(bmpData);
     return image;
 }
 
 //テキストテクスチャの生成
 + (Image*)makeTextImage:(NSString*)text font:(UIFont*)font color:(UIColor*)color {
-    UIImage* image=[Image makeTextUIImage:text 
-                                     font:font color:color bgcolor:[UIColor clearColor]];
-    return [Image makeImage:image];
+    UIImage* image = [Image makeTextUIImage:text
+                                       font:font color:color bgcolor:[UIColor clearColor]];
+    
+    if (image == nil)
+    {
+        PrintLog(@"ERROR image is nil.");
+    }
+    Image *resultImage = [Image makeImage:image];
+    if (resultImage == nil)
+    {
+        PrintLog(@"ERROR nil Result Image");
+    }
+    return resultImage;
 }
 @end

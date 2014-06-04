@@ -12,8 +12,8 @@
 
 //Canvasのプライベートメソッド
 @interface Canvas ()
-@property (nonatomic,retain) EAGLContext *context;
-@property (nonatomic,assign) NSTimer     *animeTimer;
+@property (nonatomic,strong) EAGLContext *context;
+@property (nonatomic,weak) NSTimer     *animeTimer;
 - (BOOL)createFrameBuff;
 - (void)destroyFrameBuff;
 - (void)drawView;
@@ -62,7 +62,6 @@
         //コンテキストの生成
         _context=[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
         if (!_context || ![EAGLContext setCurrentContext:_context]) {
-            [self release];
             return nil;
         }
         
@@ -80,11 +79,8 @@
     if ([EAGLContext currentContext]==_context) {
         [EAGLContext setCurrentContext:nil];
     }    
-    [_context release];
     
     //アニメ
-    [_animeTimer release];
-    [super dealloc];
 }
 
 

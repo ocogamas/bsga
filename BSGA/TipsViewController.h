@@ -46,6 +46,6 @@
     IBOutlet UILabel *titleLabel;
     IBOutlet UILabel *messageLabel;
 }
-@property (nonatomic, retain) GameDataEntity *gameDataEntity;
+@property (nonatomic, strong) GameDataEntity *gameDataEntity;
 
 @end

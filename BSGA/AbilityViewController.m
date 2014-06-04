@@ -17,22 +17,6 @@
 /************************************************
  破棄
  ************************************************/
-- (void)dealloc {
-    [pointsLabel release];
-    [needPointsLabel release];
-    [gameDataEntity release];
-    
-    [hpLabel release];
-    [specialLabel release];
-    [reloadLabel release];
-    [fuelLabel release];
-    [attackLabel release];
-    [bindLabel release];
-    [speedLabel release];
-    
-    [super dealloc];
-    
-}
 
 /************************************************
  初期化

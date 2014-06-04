@@ -18,16 +18,6 @@
 /************************************************
  破棄
  ************************************************/
-- (void)dealloc {
-    [gameDataEntity release];
-    [detailLabel release];
-    [controllerModeSegmentedControl release];
-    [backgroundColorRandomSegmentedControl release];
-    [soundSegmentedControl release];
-    [blockSegmentedControl release];
-    [super dealloc];
-    
-}
 
 /************************************************
  初期化
@@ -157,11 +147,11 @@
  ************************************************/
 - (void)infoButtonPushed {
     
-    [[[[CustomAlertView alloc] initWithTitle:kAlertCustomizeInfoTitle
+    [[[CustomAlertView alloc] initWithTitle:kAlertCustomizeInfoTitle
                                message:kAlertCustomizeInfoMessage
                               delegate:nil
                      cancelButtonTitle:nil
-                       otherButtonTitles:nil] autorelease] show];
+                       otherButtonTitles:nil] show];
     
     [AnimationManager basicAnimationWithView:infoButton
                                     duration:1.0f

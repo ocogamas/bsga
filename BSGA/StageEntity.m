@@ -12,10 +12,6 @@
 /************************************************
  破棄
  ************************************************/
-- (void)dealloc {
-    [enemyDataEntityArray release];
-    [super dealloc];
-}
 /************************************************
  初期化（デコード）
  ************************************************/
@@ -90,7 +86,6 @@
     [enemyDataEntity setAttackInterval:attackInterval];
     [enemyDataEntity setPersonality:personality];
     [enemyDataEntityArray addObject:enemyDataEntity];
-    [enemyDataEntity release];
 }
 /************************************************
  敵データ配列を返却

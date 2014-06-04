@@ -15,12 +15,6 @@
  ***************************************************************/
 - (void)dealloc {
     [mWebView setDelegate:nil];
-    [mWebView release];
-    [prevBarButtonItem release];
-    [nextBarButtonItem release];
-    [closeBarButtonItem release];
-    [toolbar release];
-    [super dealloc];
 }
 
 /***************************************************************
@@ -136,11 +130,11 @@
     }
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    [[[[UIAlertView alloc] initWithTitle:@"error"
+    [[[UIAlertView alloc] initWithTitle:@"error"
                                  message:nil
                                 delegate:nil
                        cancelButtonTitle:@"x"
-                       otherButtonTitles:nil, nil] autorelease] show];
+                       otherButtonTitles:nil, nil] show];
 }
 
 

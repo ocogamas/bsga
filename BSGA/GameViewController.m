@@ -18,14 +18,8 @@
  ************************************************/
 - (void)dealloc {
     PrintLog();
-    [directionKeyView release];
-    [directionKeyImageView release];
-    [gameButtonImageView release];
-    [gameButtonView release];
         
-    [stageEntity release];
     
-    [super dealloc];
 }
 
 /************************************************
@@ -67,7 +61,6 @@
     [gameView setSoundManager:soundManager];
     [gameView setDirectionKeyView:directionKeyView];
     [self.view addSubview:gameView];
-    [gameView release];
     
     
     [self.view addSubview:directionKeyView];
@@ -310,11 +303,11 @@
         [soundManager play:E_SOUND_SELECT];
         
         [gameView setGameState:E_GAME_STATE_PAUSE];
-        [[[[UIAlertView alloc] initWithTitle:@"PAUSE"
+        [[[UIAlertView alloc] initWithTitle:@"PAUSE"
                                      message:nil 
                                     delegate:self 
                            cancelButtonTitle:@"MENU"
-                           otherButtonTitles:@"RESUME", nil] autorelease] show];
+                           otherButtonTitles:@"RESUME", nil] show];
 //        [directionKeyView setKeyAlpha:0];
         [directionKeyView resetTouch];
         [directionKeyView setNeedsDisplay];

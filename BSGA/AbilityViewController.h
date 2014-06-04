@@ -53,7 +53,7 @@
     IBOutlet UIButton *buyButton;
 
 }
-@property (nonatomic, retain) GameDataEntity *gameDataEntity;
+@property (nonatomic, strong) GameDataEntity *gameDataEntity;
 - (void)calcNeedPoints;
 
 @end

@@ -17,26 +17,6 @@
 /************************************************
  破棄
  ************************************************/
-- (void)dealloc {
-    [messageGachaArray release];
-    [messageGachaRareArray release];
-    [messageGachaSuperRareArray release];
-    
-    [message2GachaArray release];
-    [message2GachaRareArray release];
-    [message2GachaSuperRareArray release];
-    
-    [message3GachaArray release];
-    [message3GachaRareArray release];
-    [message3GachaSuperRareArray release];
-    
-    [messageLabel release];
-    [titleLabel release];
-    [gameDataEntity release];
-    [pointsLabel release];
-    [super dealloc];
-    
-}
 
 /************************************************
  初期化
@@ -64,7 +44,7 @@
     [titleLabel setText:@""];
     [messageLabel setText:@""];
 
-    messageGachaArray = [[NSArray arrayWithObjects:
+    messageGachaArray = [NSArray arrayWithObjects:
                           @"日下部\nひかべ、くさかべ", 
                           @"田原\nたはら、たばる",
                           @"今日\nきょう、こんにち",
@@ -85,27 +65,27 @@
                           @"大分\nおおいた、だいぶ",
                           @"犬猫\nいぬねこ、けんびょう",
                           @"生物\nせいぶつ、なまもの",
-                        nil] retain];
+                        nil];
 
-    messageGachaRareArray = [[NSArray arrayWithObjects:
+    messageGachaRareArray = [NSArray arrayWithObjects:
                               @"風水\nふうすい、かざみ",
                               @"戯言\nざれごと、たわごと",
                               @"御手洗\nみたらい、おてあらい",
                               @"永久\nえいきゅう、とわ、とこしえ",
                               @"風車\nふうしゃ、かざぐるま",
                               @"足跡\nあしあと、そくせき",
-                              nil] retain];
-    messageGachaSuperRareArray = [[NSArray arrayWithObjects:
+                              nil];
+    messageGachaSuperRareArray = [NSArray arrayWithObjects:
                                    @"螺旋\nらせん、ねじ",
                                    @"銀杏\nぎんなん、いちょう",
-                                   nil] retain];
+                                   nil];
     
     // 中級が出現している
     if ( [gameDataEntity getStageClearStatusWithLevel:E_STAGE_LEVEL_CHUKYU stage:0] > -2 ) {
         [message2GachaButton setHidden:NO];
         [message2GachaCollectionButton setHidden:NO];
         
-        message2GachaArray = [[NSArray arrayWithObjects:
+        message2GachaArray = [NSArray arrayWithObjects:
                                @"紅葉\nもみじ、こうよう",
                                @"十分\nじゅうぶん、１０ぷん",
                                @"音色\nねいろ、おんしょく",
@@ -136,8 +116,8 @@
                                @"Japanとは、日本（じっぽん）と中国で読まれていた由縁という",
                                @"初級、中級の敵は、攻撃をする前に少し停止してくれる",
                                @"能力配分と敵を倒す順序が重要",
-                               nil] retain];
-        message2GachaRareArray = [[NSArray arrayWithObjects:
+                               nil];
+        message2GachaRareArray = [NSArray arrayWithObjects:
                                    @"肉汁\nにくじる、にくじゅう",
                                    @"分別\nふんべつ、ぶんべつ",
                                    @"何時\nいつ、なんじ、なんどき",
@@ -158,8 +138,8 @@
                                    @"初級をクリアすると溜め打ちが使えるようになるらしい",
                                    @"ゲームの開発には４ヶ月要した\niPhoneへの移植はその半分程度",
                                    @"駒が成れれば良いのに\nさらっと言うけど企画と実装が大変だ",                                   
-                                   nil] retain];
-        message2GachaSuperRareArray = [[NSArray arrayWithObjects:
+                                   nil];
+        message2GachaSuperRareArray = [NSArray arrayWithObjects:
                                         @"スーパーレアだからといって必ずしも価値のある情報が得られるわけではない",
                                         @"小学生低学年までは床に落ちていた髪の毛を拾って食べていた",
                                         @"ゲームを進めるとわけのわからない敵が現れるのは、ネタ切れ防止策だ",
@@ -170,7 +150,7 @@
                                         @"ケンタッキーが一日に殺す鶏の数をフェルミ推定してみよう",
                                         @"俺が癌で死ぬわけない\n多くの人はそう思っているはず",
                                         @"ゲーム画面のある場所をタップすると、盤の色、星の色、星のパターンを変えられる\nえ、知ってた？",
-                                        nil] retain];
+                                        nil];
         
         [message2GachaButton addTarget:self
                                 action:@selector(message2GachaButtonPushed)
@@ -184,7 +164,7 @@
         [message3GachaButton setHidden:NO];
         [message3GachaCollectionButton setHidden:NO];
         
-        message3GachaArray = [[NSArray arrayWithObjects:
+        message3GachaArray = [NSArray arrayWithObjects:
                                @"ビールの味？\n父親のゲップの味がするね",
                                @"授業料を授業のコマ数で割ると...\n大学の講義は1コマ90分当たり1500円くらいだった",
                                @"勤労感謝の日に感謝しません\nただ与えられた休日を満喫するのみ",
@@ -197,8 +177,8 @@
                                @"牛肉は高いけど鶏や豚のほうが好き",
                                @"タバコの火は約400度で吸うと約倍\nマッチの発火直後は約2500度で、\n太陽表面は6000度、中心は数千万度",
                                @"ハズレ",
-                               nil] retain];
-        message3GachaRareArray = [[NSArray arrayWithObjects:
+                               nil];
+        message3GachaRareArray = [NSArray arrayWithObjects:
                                    @"ウサギの目の色が赤いのは、\n眼球の裏の血管が赤いため",
                                    @"最初は将棋をモチーフにしたシューティングゲームを作る予定だった",
                                    @"unkoが臭いのではない\n臭いのがunkoなのだ",
@@ -209,8 +189,8 @@
                                    @"（制作秘話）\n開発に着手したのは2012年のゴールデンウィーク始めだ",
                                    @"（制作秘話）\n本業を終えてから自宅で数時間の作業をほぼ毎日繰り返した\n休日はそれほど作業をしていない",
                                    @"（制作秘話）\n本業でも同時期にiPhoneアプリを開発していた",
-                                   nil] retain];
-        message3GachaSuperRareArray = [[NSArray arrayWithObjects:
+                                   nil];
+        message3GachaSuperRareArray = [NSArray arrayWithObjects:
                                         @"タバコの煙には４千もの化学物質が含まれている\n79％が一酸化炭素で、次いで7.5%がニコチンだ",
                                         @"おでんの王様であるちくわぶは、\nなんと関東にしかないらしい",
                                         @"飛車よりも香車の方が射程が長い",
@@ -225,7 +205,7 @@
                                         @"特殊の効果４\n溜め打ちの飛距離を上げる",
                                         @"特殊の効果５\n特殊の値を威力にある倍率を掛けて加算する",
                                         @"たまに出る変なブロックの出現確率は0.5%",
-                                        nil] retain];
+                                        nil];
 
         
         [message3GachaButton addTarget:self
@@ -421,11 +401,11 @@
     
     
     
-    [[[[CustomAlertView alloc] initWithTitle:nil
+    [[[CustomAlertView alloc] initWithTitle:nil
                                message:string
                               delegate:nil
                      cancelButtonTitle:@"(^o^)"
-                       otherButtonTitles:nil] autorelease] show];
+                       otherButtonTitles:nil] show];
 }
 
 
@@ -534,11 +514,11 @@
         i++;
     }
     
-    [[[[CustomAlertView alloc] initWithTitle:nil
+    [[[CustomAlertView alloc] initWithTitle:nil
                                  message:string
                                 delegate:nil
                        cancelButtonTitle:@"(^o^)"
-                       otherButtonTitles:nil] autorelease] show];
+                       otherButtonTitles:nil] show];
 }
 
 
@@ -646,11 +626,11 @@
         i++;
     }
     
-    [[[[CustomAlertView alloc] initWithTitle:nil
+    [[[CustomAlertView alloc] initWithTitle:nil
                                  message:string
                                 delegate:nil
                        cancelButtonTitle:@"(^o^)"
-                       otherButtonTitles:nil] autorelease] show];
+                       otherButtonTitles:nil] show];
 }
 
 
