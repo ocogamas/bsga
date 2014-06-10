@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C1391E5193CA54700226EC8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1391E4193CA54700226EC8 /* Default-568h@2x.png */; };
 		4CB96736193CAC2A004BBFF6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB96735193CAC2A004BBFF6 /* libz.dylib */; };
+		4CB967381942E410004BBFF6 /* button_standard.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CB967371942E410004BBFF6 /* button_standard.png */; };
 		9E10CB5E1542FD0D004888DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E10CB5D1542FD0D004888DF /* UIKit.framework */; };
 		9E10CB601542FD0D004888DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E10CB5F1542FD0D004888DF /* Foundation.framework */; };
 		9E10CB621542FD0D004888DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E10CB611542FD0D004888DF /* CoreGraphics.framework */; };
@@ -63,7 +64,6 @@
 		9E2526CD158F53BF0010833A /* MemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2526CC158F53BF0010833A /* MemoCell.m */; };
 		9E2526CF158F53D00010833A /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E2526CE158F53D00010833A /* MemoCell.xib */; };
 		9E2526D3158F54720010833A /* MemoBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2526D2158F54720010833A /* MemoBackView.m */; };
-		9E2526DC1595EFDB0010833A /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2526DB1595EFDB0010833A /* twitter.png */; };
 		9E2526DE159601900010833A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2526DD1596018F0010833A /* MessageUI.framework */; };
 		9E2635AF1552B1820039F8E3 /* koma_fu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2635AE1552B1820039F8E3 /* koma_fu.png */; };
 		9E2635B31552C6DE0039F8E3 /* image01.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2635B21552C6DE0039F8E3 /* image01.png */; };
@@ -324,6 +324,7 @@
 /* Begin PBXFileReference section */
 		4C1391E4193CA54700226EC8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4CB96735193CAC2A004BBFF6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4CB967371942E410004BBFF6 /* button_standard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_standard.png; path = image/button_standard.png; sourceTree = "<group>"; };
 		9E10CB591542FD0D004888DF /* BSGA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSGA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E10CB5D1542FD0D004888DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9E10CB5F1542FD0D004888DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -395,7 +396,6 @@
 		9E2526CE158F53D00010833A /* MemoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
 		9E2526D1158F54720010833A /* MemoBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoBackView.h; sourceTree = "<group>"; };
 		9E2526D2158F54720010833A /* MemoBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoBackView.m; sourceTree = "<group>"; };
-		9E2526DB1595EFDB0010833A /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitter.png; path = image/twitter.png; sourceTree = "<group>"; };
 		9E2526DD1596018F0010833A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9E2635AE1552B1820039F8E3 /* koma_fu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = koma_fu.png; path = image/koma_fu.png; sourceTree = "<group>"; };
 		9E2635B21552C6DE0039F8E3 /* image01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image01.png; path = image/image01.png; sourceTree = "<group>"; };
@@ -1313,9 +1313,9 @@
 		9E88FB41154BB8BC00AE20E9 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				4CB967371942E410004BBFF6 /* button_standard.png */,
 				9E96AD6515C4261600BD2EE9 /* bsga.png */,
 				9E908ED51596350A00F1C65A /* icon.png */,
-				9E2526DB1595EFDB0010833A /* twitter.png */,
 				9E39F0FA1588B7DD0049E467 /* icon@2x.png */,
 				9EF7B5151573B75000F026D8 /* dark_bg.png */,
 				9EF7B500156E808F00F026D8 /* window_bg2.png */,
@@ -1514,6 +1514,7 @@
 				9E10CB861542FEBA004888DF /* GameViewController.xib in Resources */,
 				9E81948015514A4F00784964 /* block01.png in Resources */,
 				9E81948115514A4F00784964 /* fire01.png in Resources */,
+				4CB967381942E410004BBFF6 /* button_standard.png in Resources */,
 				9E81948215514A4F00784964 /* fire02.png in Resources */,
 				9E81948315514A4F00784964 /* fire03.png in Resources */,
 				9E81948615514A4F00784964 /* koma_gin.png in Resources */,
@@ -1747,7 +1748,6 @@
 				9E2526C4158D6B350010833A /* LogTableViewCell.xib in Resources */,
 				9E2526C9158D6BFD0010833A /* LogTableViewController.xib in Resources */,
 				9E2526CF158F53D00010833A /* MemoCell.xib in Resources */,
-				9E2526DC1595EFDB0010833A /* twitter.png in Resources */,
 				9E908ED61596350A00F1C65A /* icon.png in Resources */,
 				9E96AD6615C4261700BD2EE9 /* bsga.png in Resources */,
 			);

@@ -26,8 +26,6 @@
 #import "CustomWebViewController.h"
 #import "LogTableViewController.h"
 
-
-
 enum E_TRANSITION_TYPE {
     E_TRANSITION_TYPE_ALPHA,
     E_TRANSITION_TYPE_FLIP,
@@ -40,7 +38,6 @@ enum E_TRANSITION_TYPE {
     
     int transitionType;
     IBOutlet UIImageView *titleImageView;
-    IBOutlet UIScrollView *scrollView;
     
     IBOutlet UIView *contentView;
     IBOutlet UILabel *launchCountLabel;
